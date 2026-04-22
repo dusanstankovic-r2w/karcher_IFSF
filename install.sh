@@ -53,6 +53,12 @@ for FILE in "${FILES[@]}"; do
   fi
 done
 
+# Pokretanje servisa
+echo -e "\n${YELLOW}=> Pokretanje servisa...${NC}"
+systemctl enable pos-bridge
+systemctl start pos-bridge
+echo -e "${GREEN}✓ pos-bridge servis pokrenut${NC}"
+
 # Provera instalacije
 echo -e "\n${YELLOW}=> Provera instalacije...${NC}"
 dpkg -l | grep -E "edge-log-uploader|pos-bridge" | while read -r line; do
